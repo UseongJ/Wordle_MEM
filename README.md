@@ -13,6 +13,7 @@ GitHub PDF viewer may fail to load some papers, but the files can be downloaded 
 │   └── main_KOR.tex
 ├── notebooks/
 │   └── ModfiedEntropyMaximizing.ipynb
+├── MEM_Wordle_Solver.exe
 ├── paper_EN.pdf
 ├── paper_KOR.pdf
 ├── README.md
