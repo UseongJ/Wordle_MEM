@@ -1,5 +1,5 @@
 # Papers
-GitHub PDF viewer may fail to load some papers, but the files can be downloaded and opened normally.
+GitHub PDF viewer may fail to load some files, but the they can be downloaded and opened normally.
 - [Korean version](./report_KOR.pdf)
 - [English version](./report_EN.pdf)
 
