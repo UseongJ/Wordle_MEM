@@ -1,7 +1,7 @@
 # Papers
 GitHub PDF viewer may fail to load some papers, but the files can be downloaded and opened normally.
-- [Korean version](./paper_KOR.pdf)
-- [English version](./paper_EN.pdf)
+- [Korean version](./report_KOR.pdf)
+- [English version](./report_EN.pdf)
 
 # Repository Structure
 
