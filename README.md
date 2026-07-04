@@ -1,4 +1,4 @@
-# Papers
+# Reports
 
 GitHub PDF viewer may fail to load some papers, but the files can be downloaded and opened normally.
 - [Korean version](./report_KOR.pdf)
