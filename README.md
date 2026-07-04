@@ -1,12 +1,49 @@
-# Reports
+# Wordle MEM Report
 
-GitHub PDF viewer may fail to load some papers, but the files can be downloaded and opened normally.
-- [Korean version](./report_KOR.pdf)
-- [English version](./report_EN.pdf)
+This repository contains a technical report on **Modified Entropy Maximizing (MEM)**. The project analyzes Wordle-solving strategies from an entropy-based perspective and experimentally examines the trade-off between partition diversity and partition uniformity.
 
-# Repository Structure
+## Overview
 
-<!-- AUTO-GENERATED-FILE-TREE:START -->
+Wordle can be interpreted as an information search problem.
+
+Each guess partitions the current set of possible answers into multiple groups according to Wordle feedback patterns. A good guess can be understood as one that effectively reduces the uncertainty of the remaining candidate set after receiving feedback.
+
+A standard entropy-based Wordle solver evaluates each guess based on the entropy of the feedback distribution it induces. However, entropy combines two different properties into a single value:
+
+1. **Partition diversity** — how many non-empty feedback blocks are created
+2. **Partition uniformity** — how evenly the candidates are distributed among those blocks
+
+This report separates these two components and analyzes the trade-off between them through a scoring function called **Modified Entropy Maximizing (MEM)**.
+
+## Key Results
+
+`λ ∈ [0, 1]` is a parameter that controls the relative weight between partition diversity and partition uniformity.
+
+* `λ = 0.5` has the same form as normalized standard entropy.
+* `λ > 0.5` places more emphasis on partition diversity.
+* `λ < 0.5` places more emphasis on partition uniformity.
+
+The experiments were conducted under the following setting:
+
+* 2,309 Wordle answer candidates
+* 12,947 allowed guess words
+* Comparison from `λ = 0.0` to `λ = 1.0` in increments of 0.1
+
+| λ   | First Guess | Average Number of Guesses | Maximum Number of Guesses |
+| --- | ----------- | ------------------------: | ------------------------: |
+| 0.0 | roate       |                    5.0645 |                         9 |
+| 0.5 | soare       |                    3.4638 |                         6 |
+| 0.7 | reast       |                    3.4353 |                         5 |
+| 1.0 | trace       |                    3.4305 |                         6 |
+
+In terms of the average number of guesses, `λ = 1.0` achieved the best performance with **3.4305 guesses**.
+
+On the other hand, `λ = 0.7` solved every answer within **5 guesses**, and it solved the largest number of answers within 4 guesses. Therefore, while `λ = 1.0` performs best in terms of average performance, `λ = 0.7` can be considered a more balanced setting when taking the stability of the solving distribution into account.
+
+These results suggest that emphasizing partition diversity can improve the average performance of entropy-based Wordle strategies, while an appropriate balance between diversity and uniformity can lead to a more stable solving distribution.
+
+## Repository Structure
+
 ```text
 .
 ├── LatexSources/
@@ -20,4 +57,43 @@ GitHub PDF viewer may fail to load some papers, but the files can be downloaded 
 ├── report_KOR.pdf
 └── requirements.txt
 ```
-<!-- AUTO-GENERATED-FILE-TREE:END -->
+
+## Reports
+
+* [English Report](./report_EN.pdf)
+* [Korean Report](./report_KOR.pdf)
+
+## LaTeX Sources
+
+The LaTeX source files are located in the following directory:
+
+```text
+LatexSources/
+```
+
+The files are organized as follows:
+
+```text
+LatexSources/main_EN.tex
+LatexSources/main_KOR.tex
+```
+
+## Supplementary Notebook
+
+The experimental notebook is located at:
+
+```text
+notebooks/ModifiedEntropyMaximizing.ipynb
+```
+
+This notebook contains the implementation and experimental analysis used to write the report.
+
+## Supplementary Demo
+
+A Windows executable file is included:
+
+```text
+MEM_Wordle_Solver.exe
+```
+
+This executable is a Wordle solver implemented based on the ideas presented in the report.
