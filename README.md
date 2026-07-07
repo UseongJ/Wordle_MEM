@@ -107,4 +107,4 @@ This follow-up note discusses why diversity-heavy MEM works well for Wordle.
 The main idea is that the optimal value of $\lambda$ reflects the structure of the answer space. In a symmetric game such as Bulls and Cows, the entropy-equivalent setting $\lambda = 0.5$ performs best. In Wordle, however, the answer space is biased by English word structure, so a diversity-dominant value such as $\lambda = 0.7$ performs better.
 
 - Essay: [why_MEM_works.md](FollowUp/why_MEM_works.md)
-- Bulls and Cows experiment: [BullsAndCows_MEM.ipynb](notebooks/BullsAndCows_MEM.ipynb)
+- Bulls and Cows experiment: [BullsAndCows_MEM.ipynb](notebooks/BnC_MEM.ipynb)
