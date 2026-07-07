@@ -19,7 +19,6 @@ Wordle and Bulls and Cows are both deduction games. In each game, the player rep
 A common approach to Wordle is entropy maximization. For a guess $g$, the feedback patterns divide the candidate answer set $S$ into blocks. If $S_p(g)$ denotes the set of candidates that would produce feedback pattern $p$ against guess $g$, then the entropy of $g$ is
 
 $$
-
 H(g)
 =
 -\sum_p
