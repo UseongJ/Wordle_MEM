@@ -1,4 +1,4 @@
-# Why MEM Works: Answer-Space Bias in Wordle
+# Why MEM Works?: Answer-Space Bias in Wordle
 
 **Author:** Useong Jeong
 
