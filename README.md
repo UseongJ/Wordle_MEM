@@ -124,7 +124,7 @@ Using the official Wordle answer set, Dynamic MEM achieved:
 * Maximum guesses: 5
 * Solved within 4 guesses: 2258 / 2309
 
-This result is slightly better than the best tested fixed-$\lambda$ MEM strategy, suggesting that the preferred balance between entropy and expected candidate reduction changes over the course of the game.
+This result is slightly better than the best tested $\text{fixed}-\lambda$ MEM strategy, suggesting that the preferred balance between entropy and expected candidate reduction changes over the course of the game.
 
 For the full method, recurrence relation, and experimental results, see:
 
