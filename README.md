@@ -29,12 +29,12 @@ The experiments were conducted under the following setting:
 * 12,947 allowed guess words
 * Comparison from `λ = 0.0` to `λ = 1.0` in increments of 0.1
 
-| λ   | First Guess | Average Number of Guesses | Maximum Number of Guesses |
+| λ | First Guess | Average Number of Guesses | Maximum Number of Guesses |
 | --- | ----------- | ------------------------: | ------------------------: |
-| 0.0 | roate       |                    5.0645 |                         9 |
-| 0.5 | soare       |                    3.4638 |                         6 |
-| 0.7 | reast       |                    3.4353 |                         5 |
-| 1.0 | trace       |                    3.4305 |                         6 |
+| 0.0 | roate | 5.0645 | 9 |
+| 0.5 | soare | 3.4638 | 6 |
+| 0.7 | reast | 3.4353 | 5 |
+| 1.0 | trace | 3.4305 | 6 |
 
 In terms of the average number of guesses, `λ = 1.0` achieved the best performance with **3.4305 guesses**.
 
@@ -47,12 +47,15 @@ These results suggest that emphasizing partition diversity can improve the avera
 ```text
 .
 ├── FollowUp/
+│   ├── Dynamic_MEM.md
 │   └── Why_MEM_works.md
 ├── LatexSources/
 │   ├── main_EN.tex
 │   └── main_KOR.tex
 ├── notebooks/
-│   └── ModifiedEntropyMaximizing.ipynb
+│   ├── BnC MEM.ipynb
+│   ├── ModifiedEntropyMaximizing.ipynb
+│   └── bellman_dynamic_MEM.ipynb
 ├── MEM_Wordle_Solver.exe
 ├── README.md
 ├── report_EN.pdf
@@ -106,25 +109,23 @@ This follow-up note discusses why diversity-heavy MEM works well for Wordle.
 
 The main idea is that the optimal value of $\lambda$ reflects the structure of the answer space. In a symmetric game such as Bulls and Cows, the entropy-equivalent setting $\lambda = 0.5$ performs best. In Wordle, however, the answer space is biased by English word structure, so a diversity-dominant value such as $\lambda = 0.7$ performs better.
 
-- Essay: [why_MEM_works.md](FollowUp/why_MEM_works.md)
-- Bulls and Cows experiment: [BullsAndCows_MEM.ipynb](notebooks/BnC_MEM.ipynb)
+* Essay: [Why_MEM_works.md](./FollowUp/Why_MEM_works.md)
+* Bulls and Cows experiment: [BnC MEM.ipynb](./notebooks/BnC%20MEM.ipynb)
 
 ## Follow-up: Dynamic MEM
 
-The original MEM strategy uses a fixed value of $\lambda$ throughout the game.
-However, the best balance between information gain and candidate reduction may vary depending on the current candidate set.
+The original MEM strategy uses a fixed value of $\lambda$ throughout the game. However, the best balance between information gain and candidate reduction may vary depending on the current candidate set.
 
-**Dynamic MEM** allows $\lambda$ to be selected independently at each state. For each candidate set, it generates MEM-optimal guesses from multiple values of $\lambda$, then uses a Bellman-style recursive evaluation to choose the guess with the lowest expected future cost.
+Dynamic MEM allows $\lambda$ to be selected independently at each state. For each candidate set, it generates MEM-optimal guesses from multiple values of $\lambda$, then uses a Bellman-style recursive evaluation to choose the guess with the lowest expected future cost.
 
 Using the official Wordle answer set, Dynamic MEM achieved:
 
-* **Average guesses:** 3.429190
-* **Maximum guesses:** 5
-* **Solved within 4 guesses:** 2258 / 2309
+* Average guesses: 3.429190
+* Maximum guesses: 5
+* Solved within 4 guesses: 2258 / 2309
 
-This result is slightly better than the best tested fixed- $\lambda$ MEM strategy, suggesting that the preferred balance between entropy and expected candidate reduction changes over the course of the game.
+This result is slightly better than the best tested fixed-$\lambda$ MEM strategy, suggesting that the preferred balance between entropy and expected candidate reduction changes over the course of the game.
 
 For the full method, recurrence relation, and experimental results, see:
 
-* [Dynamic MEM](FollowUp/Dynamic_MEM.md)
-
+* [Dynamic MEM](./FollowUp/Dynamic_MEM.md)
