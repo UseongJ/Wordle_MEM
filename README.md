@@ -114,7 +114,7 @@ The main idea is that the optimal value of $\lambda$ reflects the structure of t
 The original MEM strategy uses a fixed value of $\lambda$ throughout the game.
 However, the best balance between information gain and candidate reduction may vary depending on the current candidate set.
 
-**Dynamic MEM** allows $lambda$ to be selected independently at each state. For each candidate set, it generates MEM-optimal guesses from multiple values of (\lambda), then uses a Bellman-style recursive evaluation to choose the guess with the lowest expected future cost.
+**Dynamic MEM** allows $lambda$ to be selected independently at each state. For each candidate set, it generates MEM-optimal guesses from multiple values of $\lambda$, then uses a Bellman-style recursive evaluation to choose the guess with the lowest expected future cost.
 
 Using the official Wordle answer set, Dynamic MEM achieved:
 
