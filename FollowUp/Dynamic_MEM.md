@@ -170,6 +170,14 @@ Because the same candidate state can appear through multiple paths, the value an
 
 ---
 
+## Implementation
+
+The implementation used for the experiment is available in the following notebook:
+
+* [Dynamic MEM Notebook](../notebooks/bellman_dynamic_MEM.ipynb)
+
+---
+
 ## Experimental Results
 
 The initial-state choice and overall performance of Dynamic MEM are shown below.
