@@ -108,3 +108,23 @@ The main idea is that the optimal value of $\lambda$ reflects the structure of t
 
 - Essay: [why_MEM_works.md](FollowUp/why_MEM_works.md)
 - Bulls and Cows experiment: [BullsAndCows_MEM.ipynb](notebooks/BnC_MEM.ipynb)
+
+## Follow-up: Dynamic MEM
+
+The original MEM strategy uses a fixed value of (\lambda) throughout the game.
+However, the best balance between information gain and candidate reduction may vary depending on the current candidate set.
+
+**Dynamic MEM** allows (\lambda) to be selected independently at each state. For each candidate set, it generates MEM-optimal guesses from multiple values of (\lambda), then uses a Bellman-style recursive evaluation to choose the guess with the lowest expected future cost.
+
+Using the official Wordle answer set, Dynamic MEM achieved:
+
+* **Average guesses:** 3.429190
+* **Maximum guesses:** 5
+* **Solved within 4 guesses:** 2258 / 2309
+
+This result is slightly better than the best tested fixed-(\lambda) MEM strategy, suggesting that the preferred balance between entropy and expected candidate reduction changes over the course of the game.
+
+For the full method, recurrence relation, and experimental results, see:
+
+* [Dynamic MEM](FollowUp/Dynamic_MEM.md)
+
